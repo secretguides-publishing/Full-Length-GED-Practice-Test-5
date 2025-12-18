@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GED Full-Length Practice Test 5 | By SecretGuides Publishing Team</title>
+    <meta name="author" content="SecretGuides Publishing Team">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); min-height: 100vh; color: #fff; line-height: 1.6; }
+        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .login-overlay.hidden { display: none; }
+        .login-container { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border-radius: 25px; padding: 40px; max-width: 480px; width: 90%; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .login-logo { font-size: 4rem; margin-bottom: 12px; display: block; }
+        .login-container h1 { font-size: 1.8rem; margin-bottom: 6px; background: linear-gradient(135deg, #e0aaff, #c77dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .login-container .subtitle { color: #a0aec0; margin-bottom: 6px; font-size: 0.9rem; }
+        .login-container .author { color: #e0aaff; font-weight: 600; margin-bottom: 15px; display: block; font-size: 0.9rem; }
+        .login-field { margin-bottom: 15px; text-align: left; }
+        .login-field label { display: block; color: #a0aec0; margin-bottom: 6px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .login-field input { width: 100%; padding: 14px 18px; border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1rem; text-align: center; letter-spacing: 3px; }
+        .login-field input:focus { outline: none; border-color: #e0aaff; }
+        .login-btn { width: 100%; padding: 14px; border: none; border-radius: 10px; background: linear-gradient(135deg, #e0aaff, #c77dff); color: #1b263b; font-size: 1rem; font-weight: 700; cursor: pointer; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(224,170,255,0.3); }
+        .login-error { color: #fc8181; margin-top: 12px; display: none; font-size: 0.9rem; }
+        .login-error.show { display: block; animation: shake 0.5s; }
+        @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+        .login-footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); color: #64748b; font-size: 0.8rem; }
+        .app-wrapper { display: none; }
+        .app-wrapper.active { display: block; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px; position: relative; }
+        .logout-btn { position: absolute; top: 15px; right: 15px; padding: 8px 16px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.5); border-radius: 8px; color: #fc8181; cursor: pointer; font-size: 0.85rem; }
+        .logout-btn:hover { background: #ef4444; color: #fff; }
+        header h1 { font-size: 2rem; margin-bottom: 10px; background: linear-gradient(135deg, #e0aaff, #c77dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: #a0aec0; margin-bottom: 10px; }
+        .author-badge { display: inline-block; padding: 8px 20px; background: rgba(224,170,255,0.2); border-radius: 20px; border: 1px solid rgba(224,170,255,0.3); color: #e0aaff; font-weight: 600; font-size: 0.9rem; }
+        .test-badge { display: inline-block; margin-left: 10px; padding: 5px 14px; background: linear-gradient(135deg, #c77dff, #9d4edd); border-radius: 12px; color: #fff; font-weight: 700; font-size: 0.85rem; }
+        .screen { display: none; }
+        .screen.active { display: block; }
+        .welcome-card { background: rgba(255,255,255,0.05); border-radius: 18px; padding: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .welcome-card h2 { font-size: 1.6rem; margin-bottom: 12px; }
+        .welcome-card p { color: #a0aec0; max-width: 600px; margin: 0 auto 20px; }
+        .test-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 25px 0; }
+        .info-card { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 18px; border: 1px solid rgba(255,255,255,0.08); }
+        .info-card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .info-card h3 { color: #fff; margin-bottom: 4px; font-size: 0.95rem; }
+        .info-card p { color: #a0aec0; font-size: 0.85rem; }
+        .info-card.rla { border-top: 3px solid #f59e0b; }
+        .info-card.math { border-top: 3px solid #10b981; }
+        .info-card.science { border-top: 3px solid #3b82f6; }
+        .info-card.social { border-top: 3px solid #ef4444; }
+        .start-btn { padding: 16px 45px; border: none; border-radius: 10px; background: linear-gradient(135deg, #e0aaff, #c77dff); color: #1b263b; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        .start-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(224,170,255,0.3); }
+        .test-rules { background: rgba(224,170,255,0.1); border-radius: 10px; padding: 18px; margin-top: 20px; text-align: left; border: 1px solid rgba(224,170,255,0.2); }
+        .test-rules h4 { color: #e0aaff; margin-bottom: 10px; font-size: 0.95rem; }
+        .test-rules ul { color: #a0aec0; padding-left: 18px; font-size: 0.9rem; }
+        .test-rules li { margin-bottom: 5px; }
+        .test-header { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 12px 20px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .test-meta h2 { font-size: 1.1rem; margin-bottom: 2px; }
+        .test-meta p { color: #a0aec0; font-size: 0.85rem; }
+        .section-indicator { padding: 5px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .section-indicator.rla { background: rgba(245,158,11,0.2); color: #f59e0b; }
+        .section-indicator.math { background: rgba(16,185,129,0.2); color: #10b981; }
+        .section-indicator.science { background: rgba(59,130,246,0.2); color: #3b82f6; }
+        .section-indicator.social { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .timer-box { background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 10px 20px; border-radius: 10px; text-align: center; }
+        .timer-box .time { font-size: 1.6rem; font-weight: 700; font-family: monospace; }
+        .timer-box .time-label { font-size: 0.7rem; opacity: 0.9; }
+        .timer-box.warning { animation: pulse 1s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+        .progress-container { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 12px; margin-bottom: 18px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; color: #a0aec0; font-size: 0.85rem; }
+        .progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #e0aaff, #c77dff); border-radius: 6px; transition: width 0.3s; }
+        .question-card { background: rgba(255,255,255,0.05); border-radius: 18px; padding: 30px; margin-bottom: 18px; }
+        .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
+        .question-num { color: #e0aaff; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .question-topic { padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 12px; font-size: 0.75rem; color: #a0aec0; }
+        .passage-box { background: rgba(0,0,0,0.3); border-left: 3px solid #e0aaff; padding: 18px; margin-bottom: 18px; border-radius: 0 10px 10px 0; font-style: italic; color: #cbd5e1; line-height: 1.7; max-height: 220px; overflow-y: auto; font-size: 0.95rem; }
+        .question-text { font-size: 1.1rem; margin-bottom: 22px; line-height: 1.6; }
+        .options-list { display: flex; flex-direction: column; gap: 10px; }
+        .option-item { background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px; }
+        .option-item:hover { background: rgba(255,255,255,0.08); transform: translateX(4px); }
+        .option-item.selected { background: rgba(224,170,255,0.15); border-color: #e0aaff; }
+        .option-letter { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; font-size: 0.9rem; }
+        .option-item.selected .option-letter { background: #e0aaff; color: #1b263b; }
+        .option-content { flex: 1; line-height: 1.5; font-size: 0.95rem; }
+        .nav-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .nav-btn { padding: 10px 22px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.9rem; }
+        .nav-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; }
+        .nav-btn.secondary:hover { background: rgba(255,255,255,0.2); }
+        .nav-btn.primary { background: linear-gradient(135deg, #e0aaff, #c77dff); color: #1b263b; }
+        .nav-btn.primary:hover { transform: translateY(-2px); }
+        .nav-btn.submit { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+        .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .flag-btn { padding: 8px 16px; border: 2px solid #f59e0b; border-radius: 8px; background: transparent; color: #f59e0b; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+        .flag-btn:hover, .flag-btn.active { background: #f59e0b; color: #000; }
+        .center-submit { text-align: center; margin-top: 18px; }
+        .question-nav-panel { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+        .nav-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .nav-panel-header h4 { color: #a0aec0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-legend { display: flex; gap: 10px; font-size: 0.7rem; color: #64748b; }
+        .legend-item { display: flex; align-items: center; gap: 3px; }
+        .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+        .legend-dot.current { background: #e0aaff; }
+        .legend-dot.answered { background: #10b981; }
+        .legend-dot.flagged { background: #f59e0b; }
+        .nav-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+        .nav-item { width: 32px; height: 32px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.75rem; font-weight: 600; }
+        .nav-item:hover { background: rgba(255,255,255,0.1); }
+        .nav-item.current { background: rgba(224,170,255,0.3); border-color: #e0aaff; color: #e0aaff; }
+        .nav-item.answered { background: #10b981; color: #fff; border-color: #10b981; }
+        .nav-item.flagged { background: #f59e0b; color: #000; border-color: #f59e0b; }
+        .section-divider { width: 100%; height: 2px; background: rgba(255,255,255,0.1); margin: 6px 0; }
+        .results-hero { text-align: center; padding: 35px 20px; }
+        .score-display { width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.05); margin: 0 auto 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 5px solid; }
+        .score-display.pass { border-color: #10b981; }
+        .score-display.fail { border-color: #ef4444; }
+        .score-value { font-size: 2.8rem; font-weight: 800; }
+        .score-display.pass .score-value { color: #10b981; }
+        .score-display.fail .score-value { color: #ef4444; }
+        .score-label { color: #a0aec0; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+        .result-status { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+        .result-status.pass { color: #10b981; }
+        .result-status.fail { color: #ef4444; }
+        .result-message { color: #a0aec0; max-width: 400px; margin: 0 auto; font-size: 0.95rem; }
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 25px 0; }
+        .stat-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .stat-value { font-size: 1.6rem; font-weight: 700; color: #e0aaff; margin-bottom: 4px; }
+        .stat-label { color: #a0aec0; font-size: 0.8rem; text-transform: uppercase; }
+        .breakdown-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 22px; margin: 22px 0; }
+        .breakdown-card h3 { margin-bottom: 18px; font-size: 1.1rem; }
+        .breakdown-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .breakdown-row:last-child { border-bottom: none; }
+        .breakdown-label { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .breakdown-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .breakdown-dot.rla { background: #f59e0b; }
+        .breakdown-dot.math { background: #10b981; }
+        .breakdown-dot.science { background: #3b82f6; }
+        .breakdown-dot.social { background: #ef4444; }
+        .breakdown-stats { display: flex; align-items: center; gap: 12px; }
+        .breakdown-bar { width: 100px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; }
+        .breakdown-fill { height: 100%; border-radius: 6px; }
+        .breakdown-fill.excellent { background: #10b981; }
+        .breakdown-fill.good { background: #e0aaff; }
+        .breakdown-fill.needs-work { background: #f59e0b; }
+        .breakdown-fill.poor { background: #ef4444; }
+        .breakdown-percent { font-weight: 700; width: 40px; text-align: right; font-size: 0.9rem; }
+        .breakdown-percent.excellent { color: #10b981; }
+        .breakdown-percent.good { color: #e0aaff; }
+        .breakdown-percent.needs-work { color: #f59e0b; }
+        .breakdown-percent.poor { color: #ef4444; }
+        .review-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 22px; margin: 22px 0; }
+        .review-card h3 { margin-bottom: 18px; font-size: 1.1rem; }
+        .filter-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+        .filter-tab { padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; background: transparent; color: #a0aec0; cursor: pointer; font-size: 0.85rem; }
+        .filter-tab:hover, .filter-tab.active { background: rgba(224,170,255,0.2); color: #fff; border-color: #e0aaff; }
+        .review-item { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 18px; margin-bottom: 12px; border-left: 3px solid; }
+        .review-item.correct { border-left-color: #10b981; }
+        .review-item.incorrect { border-left-color: #ef4444; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
+        .review-num { font-weight: 700; color: #e0aaff; font-size: 0.9rem; }
+        .review-status { padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .review-status.correct { background: rgba(16,185,129,0.2); color: #10b981; }
+        .review-status.incorrect { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .review-question { margin-bottom: 12px; line-height: 1.5; font-size: 0.95rem; }
+        .review-options { display: grid; gap: 6px; margin-bottom: 12px; }
+        .review-option { padding: 10px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); font-size: 0.9rem; }
+        .review-option.user-wrong { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); }
+        .review-option.correct-answer { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); }
+        .review-explanation { background: rgba(224,170,255,0.1); border-radius: 8px; padding: 12px; border-left: 3px solid #e0aaff; font-size: 0.9rem; }
+        .review-explanation strong { color: #e0aaff; }
+        .action-row { display: flex; justify-content: center; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
+        .action-btn { padding: 12px 30px; border: none; border-radius: 10px; cursor: pointer; font-size: 0.95rem; font-weight: 600; }
+        .action-btn.primary { background: linear-gradient(135deg, #e0aaff, #c77dff); color: #1b263b; }
+        .action-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; }
+        .action-btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 25px 20px; margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer p { color: #64748b; margin-bottom: 4px; font-size: 0.85rem; }
+        footer .author-name { color: #e0aaff; font-weight: 600; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: linear-gradient(145deg, #1b263b, #0d1b2a); border-radius: 18px; padding: 35px; max-width: 400px; width: 90%; text-align: center; }
+        .modal-box h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .modal-box p { color: #a0aec0; margin-bottom: 22px; font-size: 0.95rem; }
+        .modal-btns { display: flex; gap: 10px; justify-content: center; }
+        @media (max-width: 768px) { header h1 { font-size: 1.5rem; } .question-card { padding: 18px; } .breakdown-bar { width: 70px; } }
+    </style>
+</head>
+<body>
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-container">
+            <span class="login-logo">📚</span>
+            <h1>GED Practice Test 5</h1>
+            <p class="subtitle">Complete 154-Question Examination</p>
+            <span class="author">by SecretGuides Publishing Team</span>
+            <div style="background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(245,158,11,0.25)); border: 2px solid #fbbf24; border-radius: 12px; padding: 15px; margin: 20px 0; box-shadow: 0 0 15px rgba(251,191,36,0.2); text-align: center;">
+                <p style="color:#fbbf24; font-weight:800; font-size:0.9rem; margin-bottom:6px; text-transform:uppercase; letter-spacing:1px;">⚠️ IMPORTANT NOTICE</p>
+                <p style="color:#fff; font-weight:700; font-size:0.95rem; margin-bottom:4px;">Access Code found on: <span style="color:#fbbf24; font-size:1.3rem; font-weight:900;">PAGE 567</span></p>
+                <p style="color:#cbd5e1; font-size:0.75rem;">Only verified buyers can access this content.</p>
+            </div>
+            <div class="login-field">
+                <label>Enter Access Code</label>
+                <input type="password" id="accessCode" placeholder="••••••••••" onkeypress="if(event.key==='Enter')verifyCode()">
+            </div>
+            <button class="login-btn" onclick="verifyCode()">🔓 Unlock Test</button>
+            <div class="login-error" id="loginError">❌ Invalid access code. Please try again.</div>
+            <div class="login-footer">
+                <p>© 2025 SecretGuides Publishing Team. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <div class="app-wrapper" id="appWrapper">
+        <div class="container">
+            <header>
+                <button class="logout-btn" onclick="logout()">🔒 Logout</button>
+                <h1>📚 GED Full Practice Test 5</h1>
+                <p>Complete examination covering all four GED subject areas</p>
+                <div class="author-badge">Created by SecretGuides Publishing Team</div>
+                <span class="test-badge">TEST 5</span>
+            </header>
+            <div class="screen active" id="welcomeScreen">
+                <div class="welcome-card">
+                    <h2>Welcome to GED Practice Test 5</h2>
+                    <p>This comprehensive practice test contains 154 all-new questions across all four GED subjects.</p>
+                    <div class="test-info-grid">
+                        <div class="info-card rla"><div class="info-card-icon">📖</div><h3>Language Arts</h3><p>46 Questions • 95 Min</p></div>
+                        <div class="info-card math"><div class="info-card-icon">🔢</div><h3>Math</h3><p>46 Questions • 115 Min</p></div>
+                        <div class="info-card science"><div class="info-card-icon">🔬</div><h3>Science</h3><p>34 Questions • 90 Min</p></div>
+                        <div class="info-card social"><div class="info-card-icon">🌍</div><h3>Social Studies</h3><p>28 Questions • 70 Min</p></div>
+                    </div>
+                    <button class="start-btn" onclick="startTest()">🚀 Begin Test</button>
+                    <div class="test-rules"><h4>📋 Guidelines</h4><ul><li>Total time: <strong>370 minutes</strong></li><li>Navigate freely between questions</li><li>Flag questions for review</li><li>Passing score: <strong>60%</strong></li><li>Keyboard: Arrows, A-D, F to flag</li></ul></div>
+                </div>
+                <footer><p class="author-name">✍️ SecretGuides Publishing Team</p><p>© 2025 All Rights Reserved</p></footer>
+            </div>
+            <div class="screen" id="testScreen">
+                <div class="test-header"><div class="test-meta"><h2 id="sectionTitle">Language Arts</h2><p id="questionProgress">Q1/154</p></div><span class="section-indicator rla" id="sectionBadge">RLA</span><div class="timer-box" id="timerBox"><div class="time" id="timerDisplay">370:00</div><div class="time-label">Time Left</div></div></div>
+                <div class="progress-container"><div class="progress-header"><span>Progress</span><span id="progressText">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div></div>
+                <div class="question-nav-panel"><div class="nav-panel-header"><h4>Navigator</h4><div class="nav-legend"><div class="legend-item"><div class="legend-dot current"></div>Current</div><div class="legend-item"><div class="legend-dot answered"></div>Done</div><div class="legend-item"><div class="legend-dot flagged"></div>Flag</div></div></div><div class="nav-grid" id="navGrid"></div></div>
+                <div class="question-card"><div class="question-header"><span class="question-num" id="questionNum">Q1</span><span class="question-topic" id="questionTopic">Topic</span></div><div id="passageContainer"></div><div class="question-text" id="questionText">Loading...</div><div class="options-list" id="optionsList"></div></div>
+                <div class="nav-controls"><button class="nav-btn secondary" id="prevBtn" onclick="prevQuestion()">← Prev</button><button class="flag-btn" id="flagBtn" onclick="toggleFlag()">🚩 Flag</button><button class="nav-btn primary" onclick="nextQuestion()">Next →</button></div>
+                <div class="center-submit"><button class="nav-btn submit" onclick="confirmSubmit()">✓ Submit</button></div>
+            </div>
+            <div class="screen" id="resultsScreen">
+                <div class="results-hero"><div class="score-display" id="scoreDisplay"><div class="score-value" id="scoreValue">0%</div><div class="score-label">Score</div></div><div class="result-status" id="resultStatus">...</div><p class="result-message" id="resultMessage"></p></div>
+                <div class="stats-row"><div class="stat-card"><div class="stat-icon">✅</div><div class="stat-value" id="statCorrect">0</div><div class="stat-label">Correct</div></div><div class="stat-card"><div class="stat-icon">❌</div><div class="stat-value" id="statIncorrect">0</div><div class="stat-label">Wrong</div></div><div class="stat-card"><div class="stat-icon">⏱️</div><div class="stat-value" id="statTime">0:00</div><div class="stat-label">Time</div></div><div class="stat-card"><div class="stat-icon">📊</div><div class="stat-value" id="statGED">100</div><div class="stat-label">GED</div></div></div>
+                <div class="breakdown-card"><h3>📈 By Subject</h3><div id="subjectBreakdown"></div></div>
+                <div class="review-card"><h3>📋 Review</h3><div class="filter-tabs"><button class="filter-tab active" onclick="filterQuestions('all')">All</button><button class="filter-tab" onclick="filterQuestions('incorrect')">❌ Wrong</button><button class="filter-tab" onclick="filterQuestions('correct')">✅ Right</button><button class="filter-tab" onclick="filterQuestions('flagged')">🚩 Flagged</button></div><div id="reviewList"></div></div>
+                <div class="action-row"><button class="action-btn secondary" onclick="retakeTest()">🔄 Retake</button><button class="action-btn primary" onclick="goHome()">🏠 Home</button></div>
+                <footer><p class="author-name">✍️ SecretGuides Publishing Team</p><p>© 2025 All Rights Reserved</p></footer>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="submitModal"><div class="modal-box"><h3>⚠️ Submit?</h3><p id="submitMsg">Submit your test?</p><div class="modal-btns"><button class="action-btn secondary" onclick="closeModal()">Continue</button><button class="action-btn primary" onclick="submitTest()">Submit</button></div></div></div>
+<script>
+const ACCESS_CODE="19SECRETS99";
+function verifyCode(){const i=document.getElementById('accessCode').value,e=document.getElementById('loginError');if(i===ACCESS_CODE){document.getElementById('loginOverlay').classList.add('hidden');document.getElementById('appWrapper').classList.add('active');sessionStorage.setItem('gedTest5Access','granted');}else{e.classList.add('show');document.getElementById('accessCode').value='';setTimeout(()=>e.classList.remove('show'),3000);}}
+function logout(){sessionStorage.removeItem('gedTest5Access');document.getElementById('appWrapper').classList.remove('active');document.getElementById('loginOverlay').classList.remove('hidden');if(timer)clearInterval(timer);showScreen('welcomeScreen');}
+window.onload=function(){if(sessionStorage.getItem('gedTest5Access')==='granted'){document.getElementById('loginOverlay').classList.add('hidden');document.getElementById('appWrapper').classList.add('active');}};
+
+const questions={rla:[
+{id:1,topic:"Reading",passage:"The printing press, invented by Johannes Gutenberg around 1440, revolutionized the spread of knowledge. Before its invention, books were copied by hand, making them rare and expensive.",question:"The printing press was revolutionary because it:",options:["Made books cheaper and more accessible","Eliminated the need for reading","Was invented in America","Only printed religious texts"],correct:0,explanation:"The passage explains that hand-copying made books rare and expensive; the press changed this."},
+{id:2,topic:"Reading",question:"Connotation refers to:",options:["Dictionary definition","Emotional associations of a word","Word pronunciation","Word origin"],correct:1,explanation:"Connotation is the emotional or cultural associations beyond literal meaning."},
+{id:3,topic:"Reading",passage:"The detective surveyed the ransacked room with a practiced eye. Nothing escaped her notice—not the overturned chair, not the scattered papers, not the barely visible footprint near the window.",question:"'Ransacked' most likely means:",options:["Organized","Searched violently and messily","Painted","Locked"],correct:1,explanation:"Context clues (overturned, scattered) indicate violent searching."},
+{id:4,topic:"Reading",question:"Supporting details serve to:",options:["Contradict the main idea","Provide evidence for the main idea","Replace the conclusion","Confuse readers"],correct:1,explanation:"Supporting details give evidence, examples, or explanations for the main point."},
+{id:5,topic:"Reading",question:"A primary source from the Civil War would be:",options:["A textbook chapter","A documentary film","A soldier's letter home","A historian's analysis"],correct:2,explanation:"Primary sources are firsthand accounts from the time period."},
+{id:6,topic:"Reading",passage:"'Another meeting?' groaned Sarah, slumping into her chair. 'That's the third one today. When are we supposed to actually work?'",question:"Sarah's tone can best be described as:",options:["Enthusiastic","Frustrated","Confused","Grateful"],correct:1,explanation:"Groaning and questioning when to work shows frustration."},
+{id:7,topic:"Reading",question:"Symbolism in literature:",options:["Uses objects to represent larger ideas","Is always obvious","Only appears in poetry","Means literal interpretation"],correct:0,explanation:"Symbols are objects, characters, or events representing abstract ideas."},
+{id:8,topic:"Reading",passage:"The small coastal town had survived hurricanes, economic downturns, and population decline. Yet its residents remained, their roots too deep to pull up.",question:"The passage suggests the residents are:",options:["Planning to leave","Deeply attached to their home","Wealthy","Recent arrivals"],correct:1,explanation:"'Roots too deep to pull up' suggests strong attachment."},
+{id:9,topic:"Reading",question:"Compare and contrast structure:",options:["Shows time sequence","Examines similarities and differences","Lists random facts","Defines terms only"],correct:1,explanation:"Compare/contrast examines how things are alike and different."},
+{id:10,topic:"Reading",question:"An author's claim is strengthened by:",options:["Emotional appeals only","Relevant evidence and logical reasoning","Personal opinions alone","Changing the topic"],correct:1,explanation:"Strong arguments use evidence and logic, not just emotion."},
+{id:11,topic:"Grammar",question:"Which sentence is punctuated correctly?",options:["The store sells: bread milk and eggs.","The store sells bread, milk, and eggs.","The store, sells bread milk and eggs.","The store sells bread milk, and eggs."],correct:1,explanation:"Commas separate items in a series (Oxford comma optional but consistent)."},
+{id:12,topic:"Grammar",question:"'Whoever' vs 'whomever':",options:["Same usage","Whoever=subject; whomever=object","Whoever=object; whomever=subject","Both are outdated"],correct:1,explanation:"Whoever is subjective case; whomever is objective case."},
+{id:13,topic:"Grammar",question:"Correct use of apostrophe:",options:["Its going to rain.","The dog wagged it's tail.","The children's toys were scattered.","The mens' room is closed."],correct:2,explanation:"Children's is correct possessive for irregular plural."},
+{id:14,topic:"Grammar",question:"'Cite,' 'site,' and 'sight':",options:["All mean location","Cite=quote; site=location; sight=vision","All mean reference","Interchangeable"],correct:1,explanation:"Cite=reference, site=place, sight=vision/view."},
+{id:15,topic:"Grammar",question:"Which avoids wordiness?",options:["Due to the fact that it rained","In spite of the fact that","Because it rained","At this point in time"],correct:2,explanation:"'Because' is concise; others are wordy."},
+{id:16,topic:"Grammar",question:"Correct plural:",options:["Phenomenons","Phenomenas","Phenomena","Phenomenae"],correct:2,explanation:"Phenomena is the correct plural of phenomenon (Greek origin)."},
+{id:17,topic:"Grammar",question:"Squinting modifier error:",options:["Quickly, she ran home.","She quickly ran home.","Running quickly makes you tired.","She said yesterday she would leave."],correct:3,explanation:"'Yesterday' could modify 'said' or 'leave'—unclear placement."},
+{id:18,topic:"Grammar",question:"'Farther' vs 'further':",options:["Same meaning","Farther=physical distance; further=metaphorical","Farther=metaphorical; further=physical","Both mean more"],correct:1,explanation:"Farther for physical distance; further for figurative extent."},
+{id:19,topic:"Grammar",question:"Correct pronoun:",options:["Everyone should bring their book.","Everyone should bring his or her book.","Everyone should bring its book.","Both A and B are acceptable"],correct:3,explanation:"Traditional: his or her. Modern usage accepts singular 'their.'"},
+{id:20,topic:"Grammar",question:"Identify the compound sentence:",options:["Although tired, she finished.","She was tired, so she rested.","Tired but determined, she continued.","She finished her work."],correct:1,explanation:"Compound: two independent clauses joined by coordinating conjunction."},
+{id:21,topic:"Grammar",question:"Correct subject-verb agreement:",options:["Economics are difficult.","The news are good.","Mathematics is required.","The scissors is sharp."],correct:2,explanation:"Mathematics (like economics, news) takes singular verb despite -s ending."},
+{id:22,topic:"Grammar",question:"Restrictive clause uses:",options:["Which only","That","Commas always","Either which or that"],correct:1,explanation:"Restrictive (essential) clauses typically use 'that' without commas."},
+{id:23,topic:"Grammar",question:"'Complement' vs 'compliment':",options:["Same meaning","Complement=complete; compliment=praise","Complement=praise; compliment=complete","Both mean extra"],correct:1,explanation:"Complement completes something; compliment is praise."},
+{id:24,topic:"Grammar",question:"Correctly punctuated:",options:["He asked \"what time is it\"","He asked, \"What time is it?\"","He asked \"What time is it?\"","He asked, \"what time is it?\""],correct:1,explanation:"Comma before quote, capital letter, punctuation inside quotes."},
+{id:25,topic:"Grammar",question:"'Fewer' is used with:",options:["Uncountable nouns","Countable nouns","Abstract concepts","Liquids"],correct:1,explanation:"Fewer for countable (fewer books); less for uncountable (less water)."},
+{id:26,topic:"Writing",question:"An effective hook might be:",options:["A thesis statement","A surprising statistic or question","The conclusion","A bibliography"],correct:1,explanation:"Hooks grab attention: questions, statistics, anecdotes, quotes."},
+{id:27,topic:"Writing",question:"'Consequently' indicates:",options:["Contrast","Cause and effect","Addition","Time"],correct:1,explanation:"Consequently shows result or effect of something."},
+{id:28,topic:"Writing",question:"Rhetorical questions are used to:",options:["Get actual answers","Make readers think without expecting answers","End essays","Cite sources"],correct:1,explanation:"Rhetorical questions engage readers; answers aren't expected."},
+{id:29,topic:"Writing",question:"Coherence in writing means:",options:["Using big words","Ideas flow logically and connect clearly","Writing quickly","Avoiding paragraphs"],correct:1,explanation:"Coherence means ideas connect logically with clear transitions."},
+{id:30,topic:"Writing",question:"APA citation typically includes:",options:["Author, date, title","Only page numbers","Website color","Author's age"],correct:0,explanation:"APA uses author-date format in-text; full info in references."},
+{id:31,topic:"Writing",question:"A counterargument should be:",options:["Ignored completely","Acknowledged and addressed","Used as your thesis","Placed in the title"],correct:1,explanation:"Good arguments acknowledge opposing views and respond to them."},
+{id:32,topic:"Writing",question:"Synthesizing sources means:",options:["Copying directly","Combining information from multiple sources","Using one source only","Avoiding research"],correct:1,explanation:"Synthesis integrates information from various sources into unified discussion."},
+{id:33,topic:"Writing",question:"'Nevertheless' signals:",options:["Agreement","Concession or contrast","Time sequence","Definition"],correct:1,explanation:"Nevertheless introduces a contrasting point despite previous information."},
+{id:34,topic:"Writing",question:"Strong conclusions should NOT:",options:["Restate the thesis","Provide closure","Introduce new arguments","Summarize key points"],correct:2,explanation:"Conclusions summarize and close; new arguments belong in body paragraphs."},
+{id:35,topic:"Writing",question:"Appeal to authority fallacy:",options:["Using any expert opinion","Using unqualified person as expert","Never citing sources","All expert opinions"],correct:1,explanation:"Fallacy occurs when the 'authority' lacks relevant expertise."},
+{id:36,topic:"Writing",question:"Academic tone requires:",options:["Casual language","Objective, formal language","First-person throughout","Slang"],correct:1,explanation:"Academic writing uses formal, objective language appropriate for scholarly work."},
+{id:37,topic:"Writing",question:"Circular reasoning:",options:["Uses evidence effectively","Restates the claim as proof of itself","Provides multiple examples","Cites statistics"],correct:1,explanation:"Circular reasoning uses the conclusion as its own premise."},
+{id:38,topic:"Writing",question:"Paraphrasing requires:",options:["Exact copying","Restating in your own words with citation","No citation needed","Using quotation marks"],correct:1,explanation:"Paraphrasing restates ideas in your words but still requires citation."},
+{id:39,topic:"Writing",question:"Purpose of transitions:",options:["Add length","Connect ideas smoothly","Replace evidence","End paragraphs"],correct:1,explanation:"Transitions show relationships between ideas for smooth flow."},
+{id:40,topic:"Writing",question:"Definition/classification pattern:",options:["Tells a story","Explains what something is or categorizes","Compares two items","Shows time sequence"],correct:1,explanation:"Definition/classification explains terms or groups items by characteristics."},
+{id:41,topic:"Reading",question:"Making a prediction while reading uses:",options:["Random guessing","Text clues and prior knowledge","Only pictures","The ending first"],correct:1,explanation:"Predictions use text evidence and background knowledge to anticipate events."},
+{id:42,topic:"Grammar",question:"'Imply' vs 'infer':",options:["Same meaning","Imply=suggest; infer=conclude","Imply=conclude; infer=suggest","Both mean state directly"],correct:1,explanation:"Speakers/writers imply; listeners/readers infer."},
+{id:43,topic:"Reading",question:"Hyperbole is:",options:["Understatement","Extreme exaggeration for effect","Literal truth","A type of rhyme"],correct:1,explanation:"Hyperbole exaggerates for emphasis (I've told you a million times)."},
+{id:44,topic:"Grammar",question:"'Principal' vs 'principle':",options:["Same meaning","Principal=main/leader; principle=rule/belief","Principal=rule; principle=leader","Both mean primary"],correct:1,explanation:"Principal is a noun (leader) or adjective (main). Principle is a belief/rule."},
+{id:45,topic:"Writing",question:"Anecdotal evidence:",options:["Is always reliable","Uses personal stories, may not be representative","Is statistical data","Requires lab research"],correct:1,explanation:"Anecdotes are personal examples that may not represent broader patterns."},
+{id:46,topic:"Reading",passage:"The experiment yielded inconclusive results. While some data supported the hypothesis, other measurements contradicted it entirely.",question:"'Inconclusive' most likely means:",options:["Definitive","Not settling the question","Successful","Simple"],correct:1,explanation:"Inconclusive means results don't definitively prove or disprove the hypothesis."}],
+math:[
+{id:47,topic:"Operations",question:"(-6) × 4 + (-8) ÷ (-2) =",options:["-20","-28","20","-24"],correct:0,explanation:"-24 + 4 = -20"},
+{id:48,topic:"Operations",question:"2/3 ÷ 4/5 =",options:["8/15","5/6","10/12","6/5"],correct:1,explanation:"2/3 × 5/4 = 10/12 = 5/6"},
+{id:49,topic:"Operations",question:"√196 =",options:["14","13","98","12"],correct:0,explanation:"14 × 14 = 196"},
+{id:50,topic:"Operations",question:"1.875 as a fraction:",options:["15/8","18/75","1 7/8","Both A and C"],correct:3,explanation:"1.875 = 1 + 0.875 = 1 7/8 = 15/8"},
+{id:51,topic:"Operations",question:"What is 40% of 75?",options:["30","35","40","25"],correct:0,explanation:"0.40 × 75 = 30"},
+{id:52,topic:"Operations",question:"5⁰ =",options:["0","5","1","Undefined"],correct:2,explanation:"Any non-zero number to the power of 0 equals 1."},
+{id:53,topic:"Operations",question:"LCM of 8 and 12:",options:["24","96","4","48"],correct:0,explanation:"24 is smallest number divisible by both 8 and 12."},
+{id:54,topic:"Operations",question:"Price increased from $50 to $65. Percent increase:",options:["30%","15%","25%","23%"],correct:0,explanation:"(65-50)/50 = 15/50 = 30%"},
+{id:55,topic:"Operations",question:"5.2 × 10⁻³ in decimal:",options:["0.0052","0.052","5200","52"],correct:0,explanation:"Move decimal 3 places left: 0.0052"},
+{id:56,topic:"Operations",question:"Order: -3, 1/2, -0.5, 2",options:["-3, -0.5, 1/2, 2","-0.5, -3, 1/2, 2","2, 1/2, -0.5, -3","-3, 1/2, -0.5, 2"],correct:0,explanation:"From least to greatest: -3, -0.5, 0.5, 2"},
+{id:57,topic:"Algebra",question:"Solve: 2(3x - 4) = 5x + 6",options:["x = 14","x = 2","x = -2","x = 10"],correct:0,explanation:"6x - 8 = 5x + 6, x = 14"},
+{id:58,topic:"Algebra",question:"Simplify: (2x + 3)(x - 4)",options:["2x² - 5x - 12","2x² + 5x - 12","2x² - 8x - 12","2x² - 5x + 12"],correct:0,explanation:"FOIL: 2x² - 8x + 3x - 12 = 2x² - 5x - 12"},
+{id:59,topic:"Algebra",question:"Factor: x² + 6x + 9",options:["(x+3)(x+3)","(x+9)(x+1)","(x-3)(x-3)","(x+2)(x+4)"],correct:0,explanation:"Perfect square trinomial: (x+3)²"},
+{id:60,topic:"Algebra",question:"Slope of line through (-2, 3) and (4, -9):",options:["-2","2","-1/2","6"],correct:0,explanation:"(-9-3)/(4-(-2)) = -12/6 = -2"},
+{id:61,topic:"Algebra",question:"If f(x) = x² - 4x + 1, find f(3):",options:["-2","4","22","10"],correct:0,explanation:"9 - 12 + 1 = -2"},
+{id:62,topic:"Algebra",question:"Solve: 2x + 3y = 12 and x - y = 1",options:["x=3, y=2","x=2, y=3","x=4, y=3","x=5, y=4"],correct:0,explanation:"From second: x = y + 1. Substitute: 2(y+1) + 3y = 12, y = 2, x = 3"},
+{id:63,topic:"Algebra",question:"Solve using quadratic formula: x² - 4x - 5 = 0",options:["x=5 or x=-1","x=-5 or x=1","x=4 or x=-1","x=5 or x=1"],correct:0,explanation:"(x-5)(x+1)=0 or use formula: x = (4±6)/2"},
+{id:64,topic:"Algebra",question:"Perpendicular lines have slopes that:",options:["Are equal","Are negative reciprocals","Both equal zero","Add to zero"],correct:1,explanation:"Perpendicular slopes multiply to -1 (negative reciprocals)."},
+{id:65,topic:"Algebra",question:"Simplify: (4x³)/(2x)",options:["2x²","2x³","8x²","4x²"],correct:0,explanation:"4/2 = 2, x³/x = x²"},
+{id:66,topic:"Algebra",question:"Solve: 3x - 7 < 2x + 5",options:["x < 12","x > 12","x < -12","x > -12"],correct:0,explanation:"x < 12"},
+{id:67,topic:"Algebra",question:"Solve: |x - 4| = 9",options:["x=13 or x=-5","x=13 only","x=5 or x=-13","x=-5 only"],correct:0,explanation:"x - 4 = 9 → x = 13, or x - 4 = -9 → x = -5"},
+{id:68,topic:"Algebra",question:"'Twice a number minus 7 equals 15':",options:["2x - 7 = 15","2(x - 7) = 15","x/2 - 7 = 15","7 - 2x = 15"],correct:0,explanation:"Twice a number: 2x. Minus 7: 2x - 7. Equals 15."},
+{id:69,topic:"Geometry",question:"Rhombus diagonals 10 and 24. Area:",options:["120","240","34","68"],correct:0,explanation:"Area = (d₁ × d₂)/2 = (10 × 24)/2 = 120"},
+{id:70,topic:"Geometry",question:"Sphere radius 6. Surface area (π≈3.14):",options:["452.16","904.32","150.72","113.04"],correct:0,explanation:"SA = 4πr² = 4(3.14)(36) = 452.16"},
+{id:71,topic:"Geometry",question:"30-60-90 triangle: hypotenuse 12. Short leg:",options:["6","6√3","4","12√3"],correct:0,explanation:"In 30-60-90, short leg = hypotenuse/2 = 6"},
+{id:72,topic:"Geometry",question:"Sector area with central angle 90° and r=8:",options:["16π","64π","8π","32π"],correct:0,explanation:"Sector area = (θ/360)πr² = (90/360)π(64) = 16π"},
+{id:73,topic:"Geometry",question:"Vertical angles are:",options:["Adjacent","Congruent","Supplementary","Complementary"],correct:1,explanation:"Vertical angles (formed by intersecting lines) are always equal."},
+{id:74,topic:"Geometry",question:"Triangle with sides 5, 7, and 9 is:",options:["Right","Acute","Obtuse","Impossible"],correct:1,explanation:"5² + 7² = 74 > 81 = 9². Since sum of squares > largest², acute."},
+{id:75,topic:"Geometry",question:"Cylinder r=5, h=8. Lateral surface area:",options:["80π","50π","130π","40π"],correct:0,explanation:"Lateral SA = 2πrh = 2π(5)(8) = 80π"},
+{id:76,topic:"Geometry",question:"Decagon interior angles sum:",options:["1440°","1080°","1800°","360°"],correct:0,explanation:"(10-2) × 180 = 1440°"},
+{id:77,topic:"Geometry",question:"Volume ratio if linear scale is 2:3:",options:["4:9","2:3","8:27","6:9"],correct:2,explanation:"Volume ratio = (linear ratio)³ = 8:27"},
+{id:78,topic:"Geometry",question:"Distance from (1,2) to (4,6):",options:["5","7","25","3"],correct:0,explanation:"√[(4-1)² + (6-2)²] = √(9+16) = 5"},
+{id:79,topic:"Statistics",question:"Mode of 2, 4, 4, 6, 6, 6, 8:",options:["6","4","5","8"],correct:0,explanation:"6 appears most frequently (3 times)."},
+{id:80,topic:"Statistics",question:"Median of 3, 7, 8, 10, 12, 15:",options:["9","8","10","8.5"],correct:0,explanation:"Average of middle two: (8+10)/2 = 9"},
+{id:81,topic:"Statistics",question:"P(rolling odd on a die):",options:["1/2","1/3","2/3","1/6"],correct:0,explanation:"Odd: 1,3,5 = 3 outcomes out of 6 = 1/2"},
+{id:82,topic:"Statistics",question:"Standard deviation measures:",options:["Central tendency","Spread from the mean","Highest value","Mode"],correct:1,explanation:"Standard deviation measures how spread out data is from the mean."},
+{id:83,topic:"Statistics",question:"Independent events:",options:["Affect each other's probability","Don't affect each other's probability","Are mutually exclusive","Never happen together"],correct:1,explanation:"Independent events: outcome of one doesn't affect probability of other."},
+{id:84,topic:"Statistics",question:"Box plot shows all EXCEPT:",options:["Median","Quartiles","Mean","Range"],correct:2,explanation:"Box plots show min, Q1, median, Q3, max—not mean."},
+{id:85,topic:"Statistics",question:"Positive correlation means:",options:["Variables move opposite directions","Variables move same direction","No relationship","Perfect prediction"],correct:1,explanation:"Positive correlation: as one increases, other tends to increase."},
+{id:86,topic:"Word Problems",question:"Train travels 280 miles in 4 hours. Speed:",options:["70 mph","1120 mph","65 mph","75 mph"],correct:0,explanation:"280 ÷ 4 = 70 mph"},
+{id:87,topic:"Word Problems",question:"Item originally $120, on sale for $84. Discount percent:",options:["30%","36%","70%","25%"],correct:0,explanation:"(120-84)/120 = 36/120 = 30%"},
+{id:88,topic:"Word Problems",question:"Sum of two numbers is 50, difference is 14. Larger number:",options:["32","18","25","36"],correct:0,explanation:"x + y = 50, x - y = 14. Adding: 2x = 64, x = 32"},
+{id:89,topic:"Word Problems",question:"Triangle perimeter 45, sides in ratio 2:3:4. Longest side:",options:["20","15","10","25"],correct:0,explanation:"2x + 3x + 4x = 45, 9x = 45, x = 5. Longest = 4(5) = 20"},
+{id:90,topic:"Word Problems",question:"Cylinder volume 200π, height 8. Radius:",options:["5","25","10","4"],correct:0,explanation:"πr²(8) = 200π, r² = 25, r = 5"},
+{id:91,topic:"Word Problems",question:"$6000 at 3% simple interest for 5 years. Total amount:",options:["$6900","$900","$6180","$6300"],correct:0,explanation:"I = 6000(0.03)(5) = 900. Total = 6900"},
+{id:92,topic:"Word Problems",question:"Pipe fills tank in 12 hours, drain empties in 18 hours. Both open, time to fill:",options:["36 hours","30 hours","7.2 hours","24 hours"],correct:0,explanation:"1/12 - 1/18 = 1/36. Takes 36 hours."}],
+science:[
+{id:93,topic:"Life Science",question:"Golgi apparatus function:",options:["Energy production","Protein packaging and modification","DNA storage","Cell division"],correct:1,explanation:"Golgi modifies, packages, and ships proteins and lipids."},
+{id:94,topic:"Life Science",question:"Hemoglobin is found in:",options:["White blood cells","Red blood cells","Platelets","Plasma only"],correct:1,explanation:"Hemoglobin in red blood cells carries oxygen."},
+{id:95,topic:"Life Science",question:"Transcription produces:",options:["DNA","Protein","mRNA","Lipids"],correct:2,explanation:"Transcription copies DNA to mRNA in the nucleus."},
+{id:96,topic:"Life Science",question:"Fermentation occurs:",options:["With oxygen","Without oxygen","Only in plants","Only in animals"],correct:1,explanation:"Fermentation is anaerobic respiration (without oxygen)."},
+{id:97,topic:"Life Science",question:"Somatic cells divide by:",options:["Meiosis","Mitosis","Binary fission","Budding"],correct:1,explanation:"Somatic (body) cells divide by mitosis; sex cells by meiosis."},
+{id:98,topic:"Life Science",question:"In a food web, secondary consumers eat:",options:["Plants only","Primary consumers","Decomposers only","Nothing"],correct:1,explanation:"Secondary consumers eat primary consumers (herbivores)."},
+{id:99,topic:"Life Science",question:"Recessive traits appear when:",options:["One recessive allele present","Two recessive alleles present","Dominant allele present","No alleles present"],correct:1,explanation:"Recessive traits only show with two recessive alleles (aa)."},
+{id:100,topic:"Life Science",question:"Tendons connect:",options:["Bone to bone","Muscle to bone","Nerve to muscle","Skin to muscle"],correct:1,explanation:"Tendons connect muscles to bones. Ligaments connect bones."},
+{id:101,topic:"Life Science",question:"Carbon cycle includes all EXCEPT:",options:["Photosynthesis","Respiration","Decomposition","Magnetic reversal"],correct:3,explanation:"Magnetic reversal is unrelated to carbon cycling."},
+{id:102,topic:"Life Science",question:"Antibodies are produced by:",options:["Red blood cells","B lymphocytes","Platelets","Neurons"],correct:1,explanation:"B cells (B lymphocytes) produce antibodies for immune response."},
+{id:103,topic:"Life Science",question:"Positive feedback loops:",options:["Return to equilibrium","Amplify the initial change","Are most common","Maintain stability"],correct:1,explanation:"Positive feedback amplifies change (e.g., childbirth contractions)."},
+{id:104,topic:"Life Science",question:"Xylem transports:",options:["Sugars downward","Water and minerals upward","Hormones only","Carbon dioxide"],correct:1,explanation:"Xylem carries water/minerals up. Phloem carries sugars."},
+{id:105,topic:"Physical Science",question:"Newton's 1st Law describes:",options:["F = ma","Action-reaction","Inertia","Gravity"],correct:2,explanation:"First Law: Objects resist changes in motion (inertia)."},
+{id:106,topic:"Physical Science",question:"Momentum = mass ×",options:["Acceleration","Velocity","Force","Distance"],correct:1,explanation:"Momentum (p) = mass × velocity"},
+{id:107,topic:"Physical Science",question:"Conduction requires:",options:["Direct contact","Fluid movement","Empty space","Visible light"],correct:0,explanation:"Conduction transfers heat through direct molecular contact."},
+{id:108,topic:"Physical Science",question:"Gas to liquid:",options:["Evaporation","Condensation","Sublimation","Ionization"],correct:1,explanation:"Condensation: gas releases heat and becomes liquid."},
+{id:109,topic:"Physical Science",question:"Electrons are located:",options:["In the nucleus","In orbitals around nucleus","Nowhere specific","Only in metals"],correct:1,explanation:"Electrons orbit the nucleus in energy levels/orbitals."},
+{id:110,topic:"Physical Science",question:"Concentration affects reaction rate because:",options:["More particles = more collisions","Color changes","Temperature increases","Volume decreases"],correct:0,explanation:"Higher concentration means more frequent particle collisions."},
+{id:111,topic:"Physical Science",question:"Amplitude relates to wave:",options:["Speed","Energy/loudness","Frequency","Color"],correct:1,explanation:"Amplitude determines energy; for sound, it's loudness."},
+{id:112,topic:"Physical Science",question:"Balanced equation requirement:",options:["Equal atoms on both sides","Different atoms on each side","Only products shown","No coefficients"],correct:0,explanation:"Conservation of mass: same atoms on reactant and product sides."},
+{id:113,topic:"Physical Science",question:"Voltage is measured in:",options:["Amperes","Ohms","Volts","Watts"],correct:2,explanation:"Voltage (electrical potential) is measured in Volts."},
+{id:114,topic:"Physical Science",question:"Ionic bonds form between:",options:["Two nonmetals","Two metals","Metal and nonmetal","Noble gases"],correct:2,explanation:"Ionic bonds: electron transfer between metal and nonmetal."},
+{id:115,topic:"Physical Science",question:"Ideal gas law: PV =",options:["nRT","mgh","Fd","mc²"],correct:0,explanation:"PV = nRT relates pressure, volume, moles, and temperature."},
+{id:116,topic:"Earth Science",question:"Divergent boundaries create:",options:["Mountains","Mid-ocean ridges","Deep trenches","No features"],correct:1,explanation:"Plates moving apart create ridges and new crust."},
+{id:117,topic:"Earth Science",question:"Ozone layer protects against:",options:["Visible light","Infrared radiation","UV radiation","Radio waves"],correct:2,explanation:"Ozone absorbs harmful ultraviolet radiation."},
+{id:118,topic:"Earth Science",question:"Fossils form most commonly in:",options:["Igneous rock","Sedimentary rock","Metamorphic rock","Volcanic rock"],correct:1,explanation:"Sedimentary rock's gentle formation preserves fossils."},
+{id:119,topic:"Earth Science",question:"La Niña is characterized by:",options:["Warmer Pacific waters","Cooler Pacific waters","No ocean changes","Atlantic warming"],correct:1,explanation:"La Niña: cooler than normal Pacific waters (opposite of El Niño)."},
+{id:120,topic:"Earth Science",question:"Mantle makes up what percent of Earth's volume?",options:["About 84%","About 50%","About 15%","About 1%"],correct:0,explanation:"The mantle is Earth's largest layer, about 84% of volume."},
+{id:121,topic:"Earth Science",question:"Prevailing winds affect:",options:["Only temperature","Climate and weather patterns","Earthquake frequency","Volcanic activity"],correct:1,explanation:"Prevailing winds influence regional climate and precipitation."},
+{id:122,topic:"Earth Science",question:"Biomass energy comes from:",options:["Wind","Organic matter","Nuclear reactions","Tides"],correct:1,explanation:"Biomass uses organic material (plants, waste) for energy."},
+{id:123,topic:"Scientific Method",question:"Placebo is used to:",options:["Cure diseases","Control for psychological effects","Measure temperature","Create hypotheses"],correct:1,explanation:"Placebos control for psychological effects in experiments."},
+{id:124,topic:"Scientific Method",question:"Constants in experiments are:",options:["Variables that change","Variables kept the same","Always temperature","Unmeasurable"],correct:1,explanation:"Constants (controlled variables) are kept the same throughout."},
+{id:125,topic:"Scientific Method",question:"Peer review ensures:",options:["Publication speed","Quality and accuracy verification","Positive results only","Single author work"],correct:1,explanation:"Peer review has experts evaluate methodology and conclusions."},
+{id:126,topic:"Scientific Method",question:"Correlation does NOT prove:",options:["Relationship exists","Statistical significance","Causation","Data collection"],correct:2,explanation:"Correlation shows relationship but doesn't prove one causes the other."}],
+social:[
+{id:127,topic:"Civics",question:"Judicial branch's main power:",options:["Make laws","Enforce laws","Interpret laws","Veto laws"],correct:2,explanation:"Courts interpret laws and determine constitutionality."},
+{id:128,topic:"Civics",question:"Fourth Amendment protects against:",options:["Self-incrimination","Unreasonable searches","Double jeopardy","Cruel punishment"],correct:1,explanation:"4th Amendment: protection from unreasonable search and seizure."},
+{id:129,topic:"Civics",question:"To become President, minimum age is:",options:["25","30","35","40"],correct:2,explanation:"President must be at least 35 years old, natural-born citizen."},
+{id:130,topic:"Civics",question:"Reserved powers belong to:",options:["Federal government only","State governments","Both equally","Neither"],correct:1,explanation:"10th Amendment: powers not given to federal government go to states."},
+{id:131,topic:"Civics",question:"Electoral College votes needed to win:",options:["270","538","218","300"],correct:0,explanation:"270 electoral votes (majority of 538) needed to win presidency."},
+{id:132,topic:"Civics",question:"Cloture in the Senate:",options:["Starts debate","Ends filibuster (needs 60 votes)","Introduces bills","Removes senators"],correct:1,explanation:"Cloture ends filibuster; requires 60 senators to invoke."},
+{id:133,topic:"Civics",question:"Gideon v. Wainwright established:",options:["Miranda rights","Right to attorney for poor defendants","School integration","Voting rights"],correct:1,explanation:"1963 case guaranteed right to attorney even if unable to afford one."},
+{id:134,topic:"U.S. History",question:"Constitution ratified in:",options:["1776","1781","1788","1791"],correct:2,explanation:"Constitution ratified 1788. Declaration: 1776. Bill of Rights: 1791."},
+{id:135,topic:"U.S. History",question:"13th Amendment abolished:",options:["Prohibition","Slavery","Poll taxes","Income tax"],correct:1,explanation:"13th Amendment (1865) abolished slavery."},
+{id:136,topic:"U.S. History",question:"V-E Day and V-J Day mark:",options:["Vietnam victories","End of WWI","End of WWII in Europe and Japan","Civil War battles"],correct:2,explanation:"Victory in Europe (May 1945) and Victory over Japan (August 1945)."},
+{id:137,topic:"U.S. History",question:"Erie Canal connected:",options:["Atlantic to Pacific","Hudson River to Great Lakes","Mississippi to Gulf","Nothing"],correct:1,explanation:"Erie Canal (1825) connected Hudson River to Lake Erie."},
+{id:138,topic:"U.S. History",question:"Dust Bowl occurred during the:",options:["1910s","1930s","1950s","1970s"],correct:1,explanation:"Dust Bowl (1930s): severe dust storms worsened Great Depression."},
+{id:139,topic:"U.S. History",question:"March on Washington (1963) featured:",options:["Declaration signing","MLK's 'I Have a Dream' speech","Constitution ratification","Boston Tea Party"],correct:1,explanation:"Martin Luther King Jr. delivered famous speech at Lincoln Memorial."},
+{id:140,topic:"U.S. History",question:"Social Security Act was part of:",options:["Progressive Era","New Deal","Great Society","Reagan Revolution"],correct:1,explanation:"Social Security (1935) was key New Deal program."},
+{id:141,topic:"U.S. History",question:"Gulf of Tonkin Resolution led to:",options:["WWI","WWII","Vietnam escalation","Korean War"],correct:2,explanation:"1964 resolution gave LBJ authority to escalate Vietnam involvement."},
+{id:142,topic:"Economics",question:"Recession is defined as:",options:["One quarter GDP decline","Two consecutive quarters GDP decline","Any economic slowdown","Rising unemployment only"],correct:1,explanation:"Technical recession: two consecutive quarters of GDP decline."},
+{id:143,topic:"Economics",question:"Supply curve slopes:",options:["Downward","Upward","Horizontally","Vertically"],correct:1,explanation:"Higher prices = more supplied (positive relationship)."},
+{id:144,topic:"Economics",question:"Absolute advantage means:",options:["Producing at lower opportunity cost","Producing more with same resources","Having more resources","Trading more"],correct:1,explanation:"Absolute advantage: producing more output with same inputs."},
+{id:145,topic:"Economics",question:"Natural monopoly occurs when:",options:["Resources are scarce","One firm can serve market cheapest","Government creates it","Many firms compete"],correct:1,explanation:"Natural monopoly: economies of scale make one firm most efficient."},
+{id:146,topic:"Economics",question:"Structural unemployment results from:",options:["Seasonal changes","Skills mismatch with available jobs","Economic recession","Job searching"],correct:1,explanation:"Structural: workers' skills don't match job requirements."},
+{id:147,topic:"Economics",question:"Discount rate is:",options:["Consumer loan rate","Rate Fed charges banks","Credit card rate","Mortgage rate"],correct:1,explanation:"Discount rate: interest rate Federal Reserve charges banks."},
+{id:148,topic:"Economics",question:"Regressive tax takes:",options:["Higher percentage from rich","Same percentage from all","Higher percentage from poor","No percentage"],correct:2,explanation:"Regressive taxes burden lower incomes proportionally more."},
+{id:149,topic:"Geography",question:"Equator is located at:",options:["0° latitude","0° longitude","90° latitude","180° longitude"],correct:0,explanation:"Equator is 0° latitude; Prime Meridian is 0° longitude."},
+{id:150,topic:"Geography",question:"Mediterranean climate has:",options:["Cold winters, hot summers","Dry summers, mild wet winters","Rain year-round","Extreme cold"],correct:1,explanation:"Mediterranean: dry summers, mild rainy winters."},
+{id:151,topic:"Geography",question:"Strait is:",options:["Narrow water passage between lands","Large body of water","Mountain pass","Desert region"],correct:0,explanation:"Strait: narrow water channel connecting larger bodies."},
+{id:152,topic:"Geography",question:"Sustainable development:",options:["Ignores environment","Meets present needs without compromising future","Maximizes current profit","Eliminates all industry"],correct:1,explanation:"Sustainable development balances current needs with future resources."},
+{id:153,topic:"Geography",question:"GIS stands for:",options:["Global Internet System","Geographic Information System","General Imaging Software","Ground Inspection Service"],correct:1,explanation:"GIS: computer system for capturing and analyzing geographic data."},
+{id:154,topic:"Civics",question:"Naturalization is the process of:",options:["Being born a citizen","Becoming a citizen through legal process","Losing citizenship","Dual citizenship"],correct:1,explanation:"Naturalization: legal process for immigrants to become citizens."}]};
+
+let allQuestions=[],currentIdx=0,userAnswers={},flagged=new Set(),totalTime=370*60,timeLeft=totalTime,timer=null,startTime=null;
+function startTest(){allQuestions=[...questions.rla,...questions.math,...questions.science,...questions.social];currentIdx=0;userAnswers={};flagged.clear();timeLeft=totalTime;startTime=new Date();buildNavGrid();showScreen('testScreen');displayQuestion();startTimer();}
+function buildNavGrid(){const g=document.getElementById('navGrid');g.innerHTML='';const s=[{c:46},{c:46},{c:34},{c:28}];let i=0;s.forEach((sec,si)=>{if(si>0)g.innerHTML+='<div class="section-divider"></div>';for(let j=0;j<sec.c;j++){const d=document.createElement('div');d.className='nav-item';d.textContent=i+1;d.onclick=(()=>{const idx=i;return()=>goToQuestion(idx);})();g.appendChild(d);i++;}});updateNavGrid();}
+function updateNavGrid(){document.querySelectorAll('.nav-item').forEach((n,i)=>{n.classList.remove('current','answered','flagged');if(i===currentIdx)n.classList.add('current');if(userAnswers[i]!==undefined)n.classList.add('answered');if(flagged.has(i))n.classList.add('flagged');});}
+function getSection(i){if(i<46)return{name:'Language Arts',short:'RLA',cls:'rla'};if(i<92)return{name:'Math',short:'Math',cls:'math'};if(i<126)return{name:'Science',short:'Science',cls:'science'};return{name:'Social Studies',short:'Social',cls:'social'};}
+function displayQuestion(){const q=allQuestions[currentIdx],s=getSection(currentIdx);document.getElementById('sectionTitle').textContent=s.name;document.getElementById('questionProgress').textContent='Q'+(currentIdx+1)+'/154';const b=document.getElementById('sectionBadge');b.textContent=s.short;b.className='section-indicator '+s.cls;document.getElementById('questionNum').textContent='Q'+(currentIdx+1);document.getElementById('questionTopic').textContent=q.topic;document.getElementById('passageContainer').innerHTML=q.passage?'<div class="passage-box">'+q.passage+'</div>':'';document.getElementById('questionText').textContent=q.question;const o=document.getElementById('optionsList');o.innerHTML='';['A','B','C','D'].forEach((L,i)=>{const d=document.createElement('div');d.className='option-item'+(userAnswers[currentIdx]===i?' selected':'');d.onclick=()=>selectAnswer(i);d.innerHTML='<div class="option-letter">'+L+'</div><div class="option-content">'+q.options[i]+'</div>';o.appendChild(d);});const f=document.getElementById('flagBtn');f.classList.toggle('active',flagged.has(currentIdx));f.textContent=flagged.has(currentIdx)?'🚩 Flagged':'🚩 Flag';document.getElementById('prevBtn').disabled=currentIdx===0;const a=Object.keys(userAnswers).length,p=Math.round(a/154*100);document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressText').textContent=p+'%';updateNavGrid();}
+function selectAnswer(i){userAnswers[currentIdx]=i;document.querySelectorAll('.option-item').forEach((o,j)=>o.classList.toggle('selected',j===i));updateNavGrid();const a=Object.keys(userAnswers).length,p=Math.round(a/154*100);document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressText').textContent=p+'%';}
+function nextQuestion(){if(currentIdx<153){currentIdx++;displayQuestion();}}
+function prevQuestion(){if(currentIdx>0){currentIdx--;displayQuestion();}}
+function goToQuestion(i){currentIdx=i;displayQuestion();}
+function toggleFlag(){flagged.has(currentIdx)?flagged.delete(currentIdx):flagged.add(currentIdx);displayQuestion();}
+function startTimer(){updateTimerDisplay();timer=setInterval(()=>{timeLeft--;updateTimerDisplay();if(timeLeft<=600)document.getElementById('timerBox').classList.add('warning');if(timeLeft<=0)submitTest();},1000);}
+function updateTimerDisplay(){const h=Math.floor(timeLeft/3600),m=Math.floor((timeLeft%3600)/60),s=timeLeft%60;document.getElementById('timerDisplay').textContent=h>0?h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'):m+':'+String(s).padStart(2,'0');}
+function confirmSubmit(){document.getElementById('submitMsg').textContent='Answered '+Object.keys(userAnswers).length+'/154. Submit?';document.getElementById('submitModal').classList.add('active');}
+function closeModal(){document.getElementById('submitModal').classList.remove('active');}
+function submitTest(){clearInterval(timer);closeModal();calculateResults();showScreen('resultsScreen');}
+function calculateResults(){let c=0;const ss={rla:{c:0,t:46},math:{c:0,t:46},science:{c:0,t:34},social:{c:0,t:28}};allQuestions.forEach((q,i)=>{if(userAnswers[i]===q.correct){c++;if(i<46)ss.rla.c++;else if(i<92)ss.math.c++;else if(i<126)ss.science.c++;else ss.social.c++;}});const pct=Math.round(c/154*100),pass=pct>=60,ged=Math.round(100+pct);const t=Math.round((new Date()-startTime)/1000),th=Math.floor(t/3600),tm=Math.floor((t%3600)/60);document.getElementById('scoreDisplay').className='score-display '+(pass?'pass':'fail');document.getElementById('scoreValue').textContent=pct+'%';document.getElementById('resultStatus').className='result-status '+(pass?'pass':'fail');document.getElementById('resultStatus').textContent=pass?'🎉 PASSED!':'📚 Keep Practicing';document.getElementById('resultMessage').textContent=pass?'Great job!':'Need 60% to pass.';document.getElementById('statCorrect').textContent=c;document.getElementById('statIncorrect').textContent=154-c;document.getElementById('statTime').textContent=th>0?th+'h'+tm+'m':tm+'m';document.getElementById('statGED').textContent=ged;const bd=document.getElementById('subjectBreakdown');bd.innerHTML='';[{k:'rla',n:'Language Arts',d:'rla'},{k:'math',n:'Math',d:'math'},{k:'science',n:'Science',d:'science'},{k:'social',n:'Social Studies',d:'social'}].forEach(s=>{const p=Math.round(ss[s.k].c/ss[s.k].t*100),l=p>=80?'excellent':p>=65?'good':p>=50?'needs-work':'poor';bd.innerHTML+='<div class="breakdown-row"><div class="breakdown-label"><div class="breakdown-dot '+s.d+'"></div><span>'+s.n+'</span></div><div class="breakdown-stats"><div class="breakdown-bar"><div class="breakdown-fill '+l+'" style="width:'+p+'%"></div></div><span class="breakdown-percent '+l+'">'+p+'%</span></div></div>';});buildReview('all');}
+function buildReview(f){const r=document.getElementById('reviewList');r.innerHTML='';const L=['A','B','C','D'];allQuestions.forEach((q,i)=>{const u=userAnswers[i],c=u===q.correct;if(f==='correct'&&!c)return;if(f==='incorrect'&&c)return;if(f==='flagged'&&!flagged.has(i))return;let opts='';q.options.forEach((o,j)=>{let cl='review-option';if(j===u&&!c)cl+=' user-wrong';if(j===q.correct)cl+=' correct-answer';opts+='<div class="'+cl+'">'+L[j]+'. '+o+(j===q.correct?' ✓':'')+(j===u&&!c?' (You)':'')+'</div>';});r.innerHTML+='<div class="review-item '+(c?'correct':'incorrect')+'"><div class="review-header"><span class="review-num">Q'+(i+1)+' - '+q.topic+'</span><span class="review-status '+(c?'correct':'incorrect')+'">'+(c?'✓':'✗')+'</span></div><div class="review-question">'+q.question+'</div><div class="review-options">'+opts+'</div><div class="review-explanation"><strong>Explanation:</strong> '+q.explanation+'</div></div>';});if(!r.innerHTML)r.innerHTML='<p style="text-align:center;color:#a0aec0;padding:25px">No questions match.</p>';}
+function filterQuestions(f){document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));event.target.classList.add('active');buildReview(f);}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function goHome(){if(timer)clearInterval(timer);showScreen('welcomeScreen');}
+function retakeTest(){startTest();}
+document.addEventListener('keydown',e=>{if(!document.getElementById('testScreen').classList.contains('active')||e.target.tagName==='INPUT')return;switch(e.key){case'ArrowRight':nextQuestion();break;case'ArrowLeft':prevQuestion();break;case'a':case'A':case'1':selectAnswer(0);break;case'b':case'B':case'2':selectAnswer(1);break;case'c':case'C':case'3':selectAnswer(2);break;case'd':case'D':case'4':selectAnswer(3);break;case'f':case'F':toggleFlag();break;}});
+</script>
+</body>
+</html>
